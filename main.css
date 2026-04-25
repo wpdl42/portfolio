@@ -1,0 +1,19 @@
+
+.assignment-box {
+  min-height: 200px;   
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 모든 페이지 전역 스크롤바 숨기기 */
+html, body {
+  overflow-y: auto;          /* 세로 스크롤 가능 */
+  -ms-overflow-style: none;  /* IE, 구버전 Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, 최신 Edge */
+}
