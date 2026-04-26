@@ -1,12 +1,19 @@
-
-.assignment-box {
-  min-height: 200px;   
+html, body {
+  height: 100%;       /* 전체 높이 채우기 */
+  margin: 0;          /* 기본 여백 제거 */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
-/* 모든 페이지 전역 스크롤바 숨기기 */
+main {
+  flex: 1;            /* 메인 콘텐츠가 남은 공간을 채움 */
+}
+
+footer {
+  margin-top: auto;   /* 푸터를 항상 맨 아래로 밀어냄 */
+}
+
+/* 스크롤바 숨기기 */
 html, body {
   overflow-y: auto;          /* 세로 스크롤 가능 */
   -ms-overflow-style: none;  /* IE, 구버전 Edge */
@@ -18,13 +25,26 @@ body::-webkit-scrollbar {
   display: none;             /* Chrome, Safari, 최신 Edge */
 }
 
+/* 이 밑으로 클래스 선언 */
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+
+.assignment-box {
+  min-height: 200px;   
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
 .btn-custom {
-  background-color: #ffffff; /* 원하는 배경색 */
+  background-color: #ffffff; 
   color: #000000;              /* 글자색 */
   border: none;             /* 테두리 제거 */
 }
 
 .btn-custom:hover {
-  background-color: #000000; /* hover 시 색상 */
+  background-color: #000000; 
     color: #ffffff;              /* hover 시 글자색 */
 }
+
+
