@@ -8,6 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailBox = document.getElementById('projectDetail');
     const detailContent = document.getElementById('detailContent');
 
+    // 팀원 상세 데이터
+    const membersData = {
+        '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: 'Lead Developer' },
+        '팀원 A': { github: '#', blog: '#', role: 'UI Designer' },
+        '팀원 B': { github: '#', blog: '#', role: 'Frontend' },
+        '팀원 C': { github: '#', blog: '#', role: 'Security Analyst' },
+        '팀원 D': { github: '#', blog: '#', role: 'System Admin' },
+        '팀원 E': { github: '#', blog: '#', role: 'Automation Engineer' },
+        '팀원 F': { github: '#', blog: '#', role: 'Backend Developer' },
+        '팀원 G': { github: '#', blog: '#', role: 'Database Admin' },
+        '팀원 H': { github: '#', blog: '#', role: 'Full Stack' }
+    };
+
     // 프로젝트 상세 데이터 (객체 배열)
     const projectsData = {
         '1': {
@@ -216,21 +229,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const membersList = document.getElementById('membersList');
         
         // 팀원 카드 생성
-        membersList.innerHTML = members.map(name => `
-            <div class="col-md-4 col-lg-3 fade-in-up">
-                <div class="card h-100 shadow-sm text-center p-4 hover-card">
-                    <div class="mb-3">
-                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
-                            ${name[0]}
+        membersList.innerHTML = members.map(name => {
+            const mData = membersData[name] || { github: '#', blog: '#', role: 'Team Member' };
+            return `
+                <div class="col-md-4 col-lg-3 fade-in-up">
+                    <div class="card h-100 shadow-sm text-center p-4 hover-card">
+                        <div class="mb-3">
+                            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
+                                ${name[0]}
+                            </div>
+                        </div>
+                        <h5 class="fw-bold mb-1">${name}</h5>
+                        <p class="text-primary small mb-3">${mData.role}</p>
+                        <p class="small text-muted mb-4">프로젝트의 성공을 위해 최선을 다한 소중한 팀원입니다.</p>
+                        <div class="d-flex justify-content-center gap-2 mt-auto">
+                            <a href="${mData.github}" target="_blank" class="btn btn-outline-dark btn-sm px-3" ${mData.github === '#' ? 'onclick="return false;" style="opacity:0.5; cursor:default;"' : ''}>GitHub</a>
+                            <a href="${mData.blog}" target="_blank" class="btn btn-outline-primary btn-sm px-3" ${mData.blog === '#' ? 'onclick="return false;" style="opacity:0.5; cursor:default;"' : ''}>Blog</a>
                         </div>
                     </div>
-                    <h5 class="fw-bold mb-2">${name}</h5>
-                    <p class="text-muted small mb-0">Team Member</p>
-                    <hr>
-                    <p class="small text-muted">열정적으로 프로젝트에 참여하여 목표를 달성했습니다.</p>
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
 
         // 섹션 표시
         membersSection.style.display = 'block';
