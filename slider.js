@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 팀원 상세 데이터
     const membersData = {
-        '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: 'Lead Developer' },
-        '팀원 A': { github: '#', blog: '#', role: 'UI Designer' },
-        '팀원 B': { github: '#', blog: '#', role: 'Frontend' },
-        '팀원 C': { github: '#', blog: '#', role: 'Security Analyst' },
+        '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: '팀원_' },
+        '안성원': { github: '#', blog: '#', role: '팀장_' },
+        '장  현': { github: '#', blog: '#', role: '팀원_' },
+        '최윤성': { github: '#', blog: '#', role: '팀원_' },
         '팀원 D': { github: '#', blog: '#', role: 'System Admin' },
         '팀원 E': { github: '#', blog: '#', role: 'Automation Engineer' },
         '팀원 F': { github: '#', blog: '#', role: 'Backend Developer' },
