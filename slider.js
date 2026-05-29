@@ -10,18 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 팀원 상세 데이터 (image 경로를 추가하여 직접 이미지를 넣으실 수 있습니다)
     const membersData = {
-        '안성원': { github: '#', blog: '#', role: '팀장_', image: '/img/anseongwon.jpg' },
-        '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: '팀원_', image: '/img/jumin.png' },
-        '장  현': { github: '#', blog: '#', role: '팀원_', image: '/img/hyun.jpg' },
-        '최윤성': { github: '#', blog: '#', role: '팀원_', image: '/img/image_EXjswNR.png' },
-        '한승민': { github: '#', blog: '#', role: 'UI Designer', image: '' },
-        '홍영우': { github: '#', blog: '#', role: 'Frontend', image: '' },
-        '팀원 C': { github: '#', blog: '#', role: 'Security Analyst', image: '' },
-        '팀원 D': { github: '#', blog: '#', role: 'System Admin', image: '' },
-        '팀원 E': { github: '#', blog: '#', role: 'Automation Engineer', image: '' },
-        '팀원 F': { github: '#', blog: '#', role: 'Backend Developer', image: '' },
-        '팀원 G': { github: '#', blog: '#', role: 'Database Admin', image: '' },
-        '팀원 H': { github: '#', blog: '#', role: 'Full Stack', image: '' }
+        '안성원': { github: '#', blog: '#', role: '팀장_', image: '/img/anseongwon.jpg', bio: '효율적인 협업과 체계적인 일정 관리를 중시하는 리더입니다.' },
+        '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: '팀원_', image: '/img/jumin.png', bio: '기술을 통해 세상을 이롭게 만들고 싶은 열정적인 개발자입니다.' },
+        '장  현': { github: '#', blog: '#', role: '팀원_', image: '/img/hyun.jpg', bio: '사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다.' },
+        '최윤성': { github: '#', blog: '#', role: '팀원_', image: '/img/image_EXjswNR.png', bio: '견고하고 확장 가능한 시스템을 설계하는 백엔드 개발자입니다.' },
+        '한승민': { github: '#', blog: '#', role: 'UI Designer', image: '', bio: '심미성과 사용성을 동시에 잡는 디자인을 지향합니다.' },
+        '홍영우': { github: '#', blog: '#', role: 'Frontend', image: '', bio: '최신 웹 기술을 탐구하고 적용하는 것을 즐깁니다.' },
+        '팀원 C': { github: '#', blog: '#', role: 'Security Analyst', image: '', bio: '안전한 디지털 세상을 위해 보안 취약점을 분석합니다.' },
+        '팀원 D': { github: '#', blog: '#', role: 'System Admin', image: '', bio: '안정적인 인프라 운영과 자동화를 책임집니다.' },
+        '팀원 E': { github: '#', blog: '#', role: 'Automation Engineer', image: '', bio: '반복되는 업무를 효율적으로 자동화하는 전문가입니다.' },
+        '팀원 F': { github: '#', blog: '#', role: 'Backend Developer', image: '', bio: '데이터의 흐름을 최적화하고 안정적인 서버를 구축합니다.' },
+        '팀원 G': { github: '#', blog: '#', role: 'Database Admin', image: '', bio: '데이터의 무결성과 효율적인 쿼리 성능을 보장합니다.' },
+        '팀원 H': { github: '#', blog: '#', role: 'Full Stack', image: '', bio: '프론트와 백엔드를 아우르는 폭넓은 기술 스택을 보유하고 있습니다.' }
     };
 
     // 프로젝트 상세 데이터 (객체 배열)
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="col-md-4 border-start">
                         <div id="membersClickArea" class="p-3 rounded hover-effect" style="cursor: pointer; transition: all 0.3s ease;">
-                            <h5 class="fw-bold mb-3">참여 팀원 <small style="font-size: 0.7rem; color: #007bff;">            </small></h5>
+                            <h5 class="fw-bold mb-3">참여 팀원 <small style="font-size: 0.7rem; color: #007bff;">(클릭 시 소개 이동)</small></h5>
                             <div class="d-flex flex-wrap">
                                 ${data.members.map(m => `<span class="member-badge">${m}</span>`).join('')}
                             </div>
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 팀원 카드 생성
         membersList.innerHTML = members.map(name => {
-            const mData = membersData[name] || { github: '#', blog: '#', role: 'Team Member', image: '' };
+            const mData = membersData[name] || { github: '#', blog: '#', role: 'Team Member', image: '', bio: '프로젝트의 성공을 위해 최선을 다한 소중한 팀원입니다.' };
             
             // 이미지가 있으면 이미지를 보여주고, 없으면 이름 첫 글자 아이콘을 보여줌
             const profileDisplay = mData.image 
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         <h5 class="fw-bold mb-1">${name}</h5>
                         <p class="text-primary small mb-3">${mData.role}</p>
-                        <p class="small text-muted mb-4">프로젝트의 성공을 위해 최선을 다한 소중한 팀원입니다.</p>
+                        <p class="small text-muted mb-4">${mData.bio}</p>
                         <div class="d-flex justify-content-center gap-2 mt-auto">
                             <a href="${mData.github}" target="_blank" class="btn btn-outline-dark btn-sm px-3" ${mData.github === '#' ? 'onclick="return false;" style="opacity:0.5; cursor:default;"' : ''}>GitHub</a>
                             <a href="${mData.blog}" target="_blank" class="btn btn-outline-primary btn-sm px-3" ${mData.blog === '#' ? 'onclick="return false;" style="opacity:0.5; cursor:default;"' : ''}>Blog</a>
