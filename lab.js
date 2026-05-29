@@ -142,8 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
         guestbookForm.classList.remove('was-validated');
         renderGuestbook();
 
-        // 성공 알림 (간단히)
-        alert('메시지가 등록되었습니다!');
     });
 
     /**
