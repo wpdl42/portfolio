@@ -7,6 +7,7 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="slider.css">
 </head>
 <body>
 
@@ -16,7 +17,6 @@
     <a class="navbar-brand" href="index.html">포트폴리오 데모</a>
     
     <div class="d-flex align-items-center order-lg-last">
-      <!-- 다크모드 토글 버튼 (모바일에서도 보이도록 위치 조정) -->
       <button class="btn btn-outline-light me-2" id="themeToggle" title="테마 전환">
         <span class="theme-icon">🌙</span>
       </button>
@@ -31,7 +31,6 @@
         <li class="nav-item">
           <a class="nav-link" href="index.html">포트폴리오</a>
         </li>
-
         <li class="nav-item">
           <a class="nav-link active" href="Team.html">팀 프로젝트</a>
         </li>
@@ -47,76 +46,74 @@
 </nav>
 
 <!-- 메인 콘텐츠 -->
-<main class="container-fluid py-5">
-  <div class="text-center my-5" style="margin-top: 25vh;">
-    <h1 class="display-4 fw-bold fade-in">팀 프로젝트 소개</h1>
-    <p class="lead text-muted fade-in">우리 팀의 구성원과 프로젝트를 소개합니다</p>
+<main class="container-fluid py-5 overflow-hidden">
+  <div class="text-center my-5" style="margin-top: 10vh;">
+    <h1 class="display-4 fw-bold fade-in-up">Team Projects</h1>
+    <p class="lead text-muted fade-in-up">좌우로 드래그하여 프로젝트를 탐색하고, 클릭하여 상세 내용을 확인하세요.</p>
   </div>
 
-  <div class="container">
-    <!-- 팀원 소개 박스 -->
-    <div class="row g-4 mb-5">
-      <!-- 팀원 1 -->
-      <div class="col-md-6 col-lg-4 fade-in-up">
-        <div class="card h-100 shadow-sm hover-card">
-          <img src="img/anseongwon.jpg" class="card-img-top" alt="팀원1">
-          <div class="card-body text-center">
-            <h5 class="card-title">안성원</h5>
-            <p class="card-text fw-bold text-primary">팀장</p>
-            <p class="card-text">안성원은 팀의 리더로서 프로젝트의 방향성을 설정하고 팀원들을 이끌어갑니다.</p>
-          </div>
+  <!-- 프로젝트 슬라이더 컨테이너 -->
+  <div class="slider-wrapper fade-in-up">
+    <div class="slider-container" id="sliderContainer">
+      <!-- 프로젝트 1 -->
+      <div class="project-card" data-project="1">
+        <div class="project-image" style="background-image: url('img/팀프.jpg');"></div>
+        <div class="project-info-brief">
+          <h3>웹 프로그래밍 프로젝트 1</h3>
+          <p>반응형 웹 포트폴리오 제작</p>
         </div>
       </div>
-
-      <!-- 팀원 2 -->
-      <div class="col-md-6 col-lg-4 fade-in-up">
-        <div class="card h-100 shadow-sm hover-card">
-          <img src="img/hyun.jpg" class="card-img-top" alt="팀원2">
-          <div class="card-body text-center">
-            <h5 class="card-title">장현</h5>
-            <p class="card-text fw-bold text-primary">팀원</p>
-            <p class="card-text">장현은 팀의 구성원으로서 프로젝트에 기여하고 있습니다.</p>
-          </div>
+      <!-- 프로젝트 2 -->
+      <div class="project-card" data-project="2">
+        <div class="project-image" style="background-image: url('img/보안.jpg');"></div>
+        <div class="project-info-brief">
+          <h3>네트워크 보안 분석</h3>
+          <p>취약점 점검 및 보안 솔루션 제안</p>
         </div>
       </div>
-
-      <!-- 팀원 3 -->
-      <div class="col-md-6 col-lg-4 fade-in-up">
-        <div class="card h-100 shadow-sm hover-card">
-          <img src="img/ys.png" class="card-img-top" alt="팀원3">
-          <div class="card-body text-center">
-            <h5 class="card-title">최윤성</h5>
-            <p class="card-text fw-bold text-primary">팀원</p>
-            <p class="card-text">최윤성은 팀의 구성원으로서 프로젝트에 기여하고 있습니다.</p>
-          </div>
+      <!-- 프로젝트 3 -->
+      <div class="project-card" data-project="3">
+        <div class="project-image" style="background-image: url('img/리눅스.jpg');"></div>
+        <div class="project-info-brief">
+          <h3>서버 자동화 구축</h3>
+          <p>n8n과 리눅스를 활용한 업무 자동화</p>
+        </div>
+      </div>
+      <!-- 프로젝트 4 -->
+      <div class="project-card" data-project="4">
+        <div class="project-image" style="background-image: url('img/웹프.jpeg');"></div>
+        <div class="project-info-brief">
+          <h3>커뮤니티 플랫폼 개발</h3>
+          <p>사용자 중심의 정보 공유 서비스</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- 팀 프로젝트 링크 -->
-    <div class="text-center mt-5 fade-in-up">
-      <a href="https://neocore-three.vercel.app/" class="btn btn-primary btn-lg" target="_blank">
-        팀 프로젝트 바로가기 →
-      </a>
+  <!-- 상세 정보 영역 (동적 표시) -->
+  <div class="container mt-5">
+    <div id="projectDetail" class="detail-box shadow-lg fade-in">
+      <div id="detailContent" class="p-4 p-md-5">
+        <p class="text-center text-muted">프로젝트 카드를 클릭하면 상세 정보가 나타납니다.</p>
+      </div>
     </div>
   </div>
 </main>
 
 <!-- 상단 이동 버튼 -->
-<button id="scrollTopBtn" class="scroll-top-btn" title="상단으로 이동">
-  ⬆️
-</button>
+<button id="scrollTopBtn" class="scroll-top-btn" title="상단으로 이동">⬆️</button>
 
 <!-- 푸터 -->
-<footer class="bg-dark text-light text-center py-4 mt-5">
+<footer class="bg-dark text-light text-center py-5 mt-5">
   <div class="container">
-    <p>&copy; 2026 포트폴리오 웹. All rights reserved.</p>
+    <p class="mb-0 opacity-75">&copy; 2026 포트폴리오 웹. All rights reserved.</p>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="theme.js"></script>
 <script src="scroll-animation.js"></script>
+<script src="slider.js"></script>
 
 </body>
 </html>
