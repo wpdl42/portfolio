@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
         '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: '팀원_', image: '/img/jumin.png' },
         '장  현': { github: '#', blog: '#', role: '팀원_', image: '/img/hyun.jpg' },
         '최윤성': { github: '#', blog: '#', role: '팀원_', image: '/img/image_EXjswNR.png' },
-        '팀원 A': { github: '#', blog: '#', role: 'UI Designer', image: '' },
-        '팀원 B': { github: '#', blog: '#', role: 'Frontend', image: '' },
+        '한승민': { github: '#', blog: '#', role: 'UI Designer', image: '' },
+        '홍영우': { github: '#', blog: '#', role: 'Frontend', image: '' },
         '팀원 C': { github: '#', blog: '#', role: 'Security Analyst', image: '' },
         '팀원 D': { github: '#', blog: '#', role: 'System Admin', image: '' },
         '팀원 E': { github: '#', blog: '#', role: 'Automation Engineer', image: '' },
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 프로젝트 상세 데이터 (객체 배열)
     const projectsData = {
         '1': {
-            title: '웹 프로그래밍 프로젝트 1',
+            title: 'NeoCore Team Project',
             members: ['안성원', '장주민', '장  현', '최윤성'],
-            description: '부트스트랩과 바닐라 자바스크립트를 활용하여 제작한 개인 포트폴리오 사이트입니다. 다크모드, 애니메이션 효과, 동적 데이터 처리 등을 포함하고 있습니다.',
-            role: '프론트엔드 개발 및 UI/UX 디자인',
-            period: '2024.03 - 2024.05'
+            description: '중간고사 및 기말고사 평가 프로젝트 입니다. 학기중 학습한 웹 프로그래밍 기술을 활용하여 협업경험을 쌓고, 실제 웹 사이트 제작을 목표로 진행했습니다. 주제는 AI으로 선정되었으며, 아직 팀플 완성 안되서 생략합니다.',
+            role: '프론트엔드 개발 및 UI Design',
+            period: '2026.04 - 2026.06'
         },
         '2': {
-            title: '네트워크 보안 분석',
+            title: 'Java 학사관리 시스템',
             members: ['장주민', '팀원 C'],
             description: '교내 네트워크 환경에서의 보안 취약점을 점검하고, 방화벽 설정 및 침입 탐지 시스템(IDS) 구축 시나리오를 설계한 프로젝트입니다.',
             role: '취약점 스캐닝 및 보고서 작성',
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="col-md-4 border-start">
                         <div id="membersClickArea" class="p-3 rounded hover-effect" style="cursor: pointer; transition: all 0.3s ease;">
-                            <h5 class="fw-bold mb-3">참여 팀원 <small style="font-size: 0.7rem; color: #007bff;">(클릭 시 소개 이동)</small></h5>
+                            <h5 class="fw-bold mb-3">참여 팀원 <small style="font-size: 0.7rem; color: #007bff;">            </small></h5>
                             <div class="d-flex flex-wrap">
                                 ${data.members.map(m => `<span class="member-badge">${m}</span>`).join('')}
                             </div>
