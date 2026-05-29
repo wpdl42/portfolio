@@ -1,50 +1,334 @@
+/* ============================================
+   기본 레이아웃 및 구조
+   ============================================ */
+
 html, body {
-  height: 100%;       /* 전체 높이 채우기 */
-  margin: 0;          /* 기본 여백 제거 */
+  height: 100%;
+  margin: 0;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 main {
-  flex: 1;            /* 메인 콘텐츠가 남은 공간을 채움 */
+  flex: 1;
 }
 
 footer {
-  margin-top: auto;   /* 푸터를 항상 맨 아래로 밀어냄 */
+  margin-top: auto;
 }
 
 /* 스크롤바 숨기기 */
 html, body {
-  overflow-y: auto;          /* 세로 스크롤 가능 */
-  -ms-overflow-style: none;  /* IE, 구버전 Edge */
-  scrollbar-width: none;     /* Firefox */
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-  display: none;             /* Chrome, Safari, 최신 Edge */
+  display: none;
 }
 
-/* 이 밑으로 클래스 선언 */
-/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+/* ============================================
+   다크모드 테마
+   ============================================ */
+
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #212529;
+  --text-light: #212529;
+  --text-dark: #ffffff;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #343a40;
+  --navbar-bg-light: #212529;
+  --navbar-bg-dark: #1a1a1a;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* 다크모드에서 카드 스타일 */
+body.dark-mode .card {
+  background-color: var(--card-bg-dark);
+  color: var(--text-dark);
+  border-color: #495057;
+}
+
+body.dark-mode .card-text {
+  color: #adb5bd;
+}
+
+body.dark-mode .text-muted {
+  color: #868e96 !important;
+}
+
+body.dark-mode .navbar {
+  background-color: var(--navbar-bg-dark) !important;
+}
+
+body.dark-mode .nav-link {
+  color: #adb5bd !important;
+}
+
+body.dark-mode .nav-link.active {
+  color: #ffffff !important;
+}
+
+body.dark-mode .lead {
+  color: #adb5bd;
+}
+
+body.dark-mode footer {
+  background-color: var(--navbar-bg-dark) !important;
+}
+
+/* ============================================
+   테마 토글 버튼
+   ============================================ */
+
+#themeToggle {
+  background-color: transparent !important;
+  border: 2px solid #ffffff !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+#themeToggle:hover {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  transform: rotate(20deg);
+}
+
+body.dark-mode #themeToggle {
+  border-color: #adb5bd !important;
+}
+
+body.dark-mode #themeToggle:hover {
+  background-color: #adb5bd !important;
+  color: #212529 !important;
+}
+
+.theme-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* ============================================
+   스크롤 애니메이션
+   ============================================ */
+
+/* 페이드인 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-in-out forwards;
+  opacity: 0;
+}
+
+/* 스크롤 위치에 따른 애니메이션 */
+.fade-in-up.visible {
+  animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+/* ============================================
+   카드 호버 효과
+   ============================================ */
+
+.hover-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hover-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+body.dark-mode .hover-card:hover {
+  box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================
+   상단 이동 버튼
+   ============================================ */
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.scroll-top-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-btn.show {
+  display: flex;
+}
+
+body.dark-mode .scroll-top-btn {
+  background-color: #0d6efd;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .scroll-top-btn:hover {
+  background-color: #0a58ca;
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   과제 박스 스타일
+   ============================================ */
 
 .assignment-box {
-  min-height: 200px;   
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: all 0.3s ease;
 }
 
+.assignment-list {
+  margin-bottom: 3rem;
+}
+
+/* ============================================
+   버튼 스타일
+   ============================================ */
 
 .btn-custom {
-  background-color: #ffffff; 
-  color: #000000;              /* 글자색 */
-  border: none;             /* 테두리 제거 */
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .btn-custom:hover {
-  background-color: #000000; 
-    color: #ffffff;              /* hover 시 글자색 */
+  background-color: #000000;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+body.dark-mode .btn-custom {
+  background-color: #343a40;
+  color: #ffffff;
+  border-color: #ffffff;
+}
 
+body.dark-mode .btn-custom:hover {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   네비게이션 바 개선
+   ============================================ */
+
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .navbar {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   반응형 디자인
+   ============================================ */
+
+@media (max-width: 768px) {
+  .scroll-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .fade-in-up {
+    animation-delay: 0.1s;
+  }
+
+  main {
+    padding: 0 1rem;
+  }
+}
+
+/* ============================================
+   추가 유틸리티 클래스
+   ============================================ */
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  transition: box-shadow 0.3s ease;
+}
+
+body.dark-mode .shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 부드러운 스크롤 */
+html {
+  scroll-behavior: smooth;
+}
