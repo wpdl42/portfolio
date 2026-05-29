@@ -141,7 +141,7 @@ body.dark-mode .member-badge {
     min-width: 85vw; /* 화면 너비의 85% 차지하여 시원하게 보임 */
     max-width: 320px;
     height: 450px;
-    margin: 0 10px;
+    margin: 0; /* 마진 제거 (gap으로만 조절) */
   }
   .project-info-brief h3 {
     font-size: 1.25rem;

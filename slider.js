@@ -119,10 +119,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateSlider() {
         const containerWidth = sliderContainer.parentElement.offsetWidth;
-        const cardWidth = projectCards[0].offsetWidth;
-        const gap = 20; // CSS의 gap 값과 일치해야 함
+        const card = projectCards[currentIndex];
+        const cardWidth = card.offsetWidth;
         
-        // 중앙 정렬을 위한 오프셋 계산: (컨테이너 절반) - (카드 절반) - (인덱스 * (카드너비 + 간격))
+        // 실제 적용된 gap 값을 계산 (브라우저 계산값 사용)
+        const style = window.getComputedStyle(sliderContainer);
+        const gap = parseInt(style.gap) || 0;
+        
+        // 중앙 정렬 오프셋: (화면중앙) - (현재카드너비/2) - (현재카드까지의 누적 거리)
+        // 누적 거리 = 인덱스 * (카드너비 + 간격)
         currentTranslate = (containerWidth / 2) - (cardWidth / 2) - (currentIndex * (cardWidth + gap));
         
         prevTranslate = currentTranslate;
