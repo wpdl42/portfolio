@@ -18,11 +18,30 @@
         .guestbook-item {
             border-left: 5px solid #0d6efd;
             background-color: rgba(13, 110, 253, 0.05);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .guestbook-item:hover {
+            transform: translateX(10px);
+            background-color: rgba(13, 110, 253, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         body.dark-mode .guestbook-item {
             background-color: rgba(255, 255, 255, 0.05);
             border-left-color: #0d6efd;
+        }
+        body.dark-mode .guestbook-item:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+        }
+        .form-control {
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+        .card {
+            transition: all 0.3s ease;
         }
         .filter-btn {
             transition: all 0.3s ease;

@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // 최신순 정렬 후 렌더링
-        guestbookList.innerHTML = [...messages].reverse().map(msg => `
-            <div class="card guestbook-item shadow-sm">
+        guestbookList.innerHTML = [...messages].reverse().map((msg, index) => `
+            <div class="card guestbook-item shadow-sm fade-in-up visible" style="animation-delay: ${index * 0.1}s">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-start mb-2">
                         <h6 class="fw-bold mb-0">${msg.nickname}</h6>
