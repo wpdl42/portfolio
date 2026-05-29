@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'JavaScript', category: 'frontend', level: '32%', color: 'bg-warning' },
         { name: 'Python', category: 'backend', level: '10%', color: 'bg-info' },
         { name: 'Linux', category: 'backend', level: '32%', color: 'bg-secondary' },
+        { name: 'Java', category: 'backend', level: '29%', color: 'bg-danger' },
         { name: 'Security', category: 'backend', level: '40%', color: 'bg-dark' },
         { name: 'Git', category: 'tools', level: '60%', color: 'bg-success' },
         { name: 'n8n', category: 'tools', level: '1%', color: 'bg-danger' },
