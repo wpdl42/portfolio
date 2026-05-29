@@ -18,16 +18,9 @@ footer {
   margin-top: auto;
 }
 
-/* 스크롤바 숨기기 */
+/* 스크롤바 활성화 */
 html, body {
   overflow-y: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
 }
 
 /* ============================================
