@@ -16,10 +16,11 @@
 
 .slider-container {
   display: flex;
-  gap: 30px;
-  padding: 0 50%; /* 중앙 정렬을 위해 양옆 여백 확보 */
+  gap: 20px;
+  padding: 0;
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform;
+  /* JS에서 중앙 정렬을 위해 동적으로 패딩을 계산하거나 transform을 조정함 */
 }
 
 .project-card {
@@ -133,8 +134,16 @@ body.dark-mode .member-badge {
 
 /* 반응형 대응 */
 @media (max-width: 768px) {
+  .slider-wrapper {
+    padding: 40px 0 80px 0;
+  }
   .project-card {
-    min-width: 280px;
-    height: 400px;
+    min-width: 85vw; /* 화면 너비의 85% 차지하여 시원하게 보임 */
+    max-width: 320px;
+    height: 450px;
+    margin: 0 10px;
+  }
+  .project-info-brief h3 {
+    font-size: 1.25rem;
   }
 }

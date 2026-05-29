@@ -52,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 초기 설정: 첫 번째 카드 중앙 배치
     updateSlider();
 
+    // 화면 크기 변경 시 재계산
+    window.addEventListener('resize', updateSlider);
+
     // 마우스 이벤트
     sliderContainer.addEventListener('mousedown', dragStart);
     sliderContainer.addEventListener('touchstart', dragStart);
@@ -115,8 +118,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateSlider() {
-        const cardWidth = projectCards[0].offsetWidth + 30; // 카드 너비 + gap
-        currentTranslate = currentIndex * -cardWidth;
+        const containerWidth = sliderContainer.parentElement.offsetWidth;
+        const cardWidth = projectCards[0].offsetWidth;
+        const gap = 20; // CSS의 gap 값과 일치해야 함
+        
+        // 중앙 정렬을 위한 오프셋 계산: (컨테이너 절반) - (카드 절반) - (인덱스 * (카드너비 + 간격))
+        currentTranslate = (containerWidth / 2) - (cardWidth / 2) - (currentIndex * (cardWidth + gap));
+        
         prevTranslate = currentTranslate;
         
         sliderContainer.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
