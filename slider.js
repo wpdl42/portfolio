@@ -168,6 +168,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = projectsData[id];
         if (!data) return;
 
+        // 팀원 섹션 숨기기 (새 프로젝트 클릭 시)
+        const membersSection = document.getElementById('teamMembersSection');
+        membersSection.style.display = 'none';
+
         // 상세 내용 생성
         detailContent.innerHTML = `
             <div class="detail-content-wrapper">
@@ -181,9 +185,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p>${data.role}</p>
                     </div>
                     <div class="col-md-4 border-start">
-                        <h5 class="fw-bold mb-3">참여 팀원</h5>
-                        <div class="d-flex flex-wrap">
-                            ${data.members.map(m => `<span class="member-badge">${m}</span>`).join('')}
+                        <div id="membersClickArea" class="p-3 rounded hover-effect" style="cursor: pointer; transition: all 0.3s ease;">
+                            <h5 class="fw-bold mb-3">참여 팀원 <small style="font-size: 0.7rem; color: #007bff;">(클릭 시 소개 이동)</small></h5>
+                            <div class="d-flex flex-wrap">
+                                ${data.members.map(m => `<span class="member-badge">${m}</span>`).join('')}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -196,6 +202,42 @@ document.addEventListener('DOMContentLoaded', function() {
         // 상세 정보 영역으로 부드럽게 스크롤
         setTimeout(() => {
             detailBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // 참여 팀원 영역 클릭 이벤트 추가
+            const membersClickArea = document.getElementById('membersClickArea');
+            membersClickArea.addEventListener('click', () => {
+                showTeamMembers(data.members);
+            });
+        }, 100);
+    }
+
+    function showTeamMembers(members) {
+        const membersSection = document.getElementById('teamMembersSection');
+        const membersList = document.getElementById('membersList');
+        
+        // 팀원 카드 생성
+        membersList.innerHTML = members.map(name => `
+            <div class="col-md-4 col-lg-3 fade-in-up">
+                <div class="card h-100 shadow-sm text-center p-4 hover-card">
+                    <div class="mb-3">
+                        <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
+                            ${name[0]}
+                        </div>
+                    </div>
+                    <h5 class="fw-bold mb-2">${name}</h5>
+                    <p class="text-muted small mb-0">Team Member</p>
+                    <hr>
+                    <p class="small text-muted">열정적으로 프로젝트에 참여하여 목표를 달성했습니다.</p>
+                </div>
+            </div>
+        `).join('');
+
+        // 섹션 표시
+        membersSection.style.display = 'block';
+        
+        // 부드럽게 스크롤 이동
+        setTimeout(() => {
+            membersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
     }
 });

@@ -126,10 +126,20 @@ body.dark-mode .detail-box {
   margin: 5px;
   font-size: 0.9rem;
   font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 body.dark-mode .member-badge {
   background-color: #333;
+}
+
+.hover-effect:hover {
+  background-color: rgba(0, 123, 255, 0.08);
+  transform: scale(1.02);
+}
+
+body.dark-mode .hover-effect:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* 반응형 대응 */
