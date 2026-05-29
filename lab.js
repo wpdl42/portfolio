@@ -11,15 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 스킬 데이터 (객체 배열)
     const skillsData = [
-        { name: 'HTML5', category: 'frontend', level: '90%', color: 'bg-danger' },
-        { name: 'CSS3', category: 'frontend', level: '85%', color: 'bg-primary' },
-        { name: 'JavaScript', category: 'frontend', level: '80%', color: 'bg-warning' },
-        { name: 'Python', category: 'backend', level: '75%', color: 'bg-info' },
-        { name: 'Linux', category: 'backend', level: '70%', color: 'bg-secondary' },
-        { name: 'Security', category: 'backend', level: '65%', color: 'bg-dark' },
-        { name: 'Git', category: 'tools', level: '80%', color: 'bg-success' },
-        { name: 'n8n', category: 'tools', level: '70%', color: 'bg-danger' },
-        { name: 'Bootstrap', category: 'frontend', level: '90%', color: 'bg-purple' }
+        { name: 'HTML5', category: 'frontend', level: '20%', color: 'bg-danger' },
+        { name: 'CSS3', category: 'frontend', level: '23%', color: 'bg-primary' },
+        { name: 'JavaScript', category: 'frontend', level: '32%', color: 'bg-warning' },
+        { name: 'Python', category: 'backend', level: '10%', color: 'bg-info' },
+        { name: 'Linux', category: 'backend', level: '32%', color: 'bg-secondary' },
+        { name: 'Security', category: 'backend', level: '40%', color: 'bg-dark' },
+        { name: 'Git', category: 'tools', level: '60%', color: 'bg-success' },
+        { name: 'n8n', category: 'tools', level: '1%', color: 'bg-danger' },
+        { name: 'Bootstrap', category: 'frontend', level: '55%', color: 'bg-purple' }
     ];
 
     const skillsContainer = document.getElementById('skillsContainer');
