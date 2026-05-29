@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let prevTranslate = 0;
     let animationID;
     let currentIndex = 0;
+    let isMoving = false; // 실제 드래그 이동 여부 확인
 
     // 초기 설정: 첫 번째 카드 중앙 배치
     updateSlider();
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function dragStart(e) {
         isDragging = true;
+        isMoving = false;
         startX = getPositionX(e);
         sliderContainer.style.transition = 'none';
         cancelAnimationFrame(animationID);
@@ -72,6 +74,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isDragging) return;
         const currentX = getPositionX(e);
         const diff = currentX - startX;
+        
+        // 미세한 움직임은 드래그로 치지 않음 (클릭 보호)
+        if (Math.abs(diff) > 5) {
+            isMoving = true;
+        }
+
         currentTranslate = prevTranslate + diff;
         setSliderPosition();
     }
@@ -82,10 +90,20 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 가장 가까운 카드로 스냅
         const movedBy = currentTranslate - prevTranslate;
-        if (movedBy < -100 && currentIndex < projectCards.length - 1) currentIndex += 1;
-        if (movedBy > 100 && currentIndex > 0) currentIndex -= 1;
+        
+        // 드래그 거리가 충분할 때만 페이지 전환
+        if (movedBy < -100 && currentIndex < projectCards.length - 1) {
+            currentIndex += 1;
+        } else if (movedBy > 100 && currentIndex > 0) {
+            currentIndex -= 1;
+        }
 
         updateSlider();
+        
+        // 드래그가 끝난 후 아주 짧은 시간 동안만 isMoving 유지 (클릭 방지용)
+        setTimeout(() => {
+            isMoving = false;
+        }, 50);
     }
 
     function getPositionX(e) {
@@ -117,6 +135,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 카드 클릭 이벤트 (상세 정보 표시)
     projectCards.forEach((card, index) => {
         card.addEventListener('click', () => {
+            // 드래그 중이었다면 클릭 무시
+            if (isMoving) return;
+
             // 클릭한 카드가 중앙이 아니면 중앙으로 이동
             if (index !== currentIndex) {
                 currentIndex = index;

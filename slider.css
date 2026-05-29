@@ -5,8 +5,8 @@
 .slider-wrapper {
   position: relative;
   width: 100%;
-  padding: 50px 0;
-  overflow: hidden;
+  padding: 80px 0 120px 0; /* 하단 여백 대폭 확대 */
+  overflow: visible; /* 잘림 방지 */
   cursor: grab;
 }
 
@@ -24,7 +24,7 @@
 
 .project-card {
   min-width: 400px;
-  height: 500px;
+  height: 480px; /* 높이 소폭 축소 */
   background-color: var(--card-bg-light);
   border-radius: 24px;
   overflow: hidden;
