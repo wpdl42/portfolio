@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectsData = {
         '1': {
             title: '웹 프로그래밍 프로젝트 1',
-            members: ['장주민', '안성원', '장  현', '최윤성'],
+            members: ['안성원', '장주민', '장  현', '최윤성'],
             description: '부트스트랩과 바닐라 자바스크립트를 활용하여 제작한 개인 포트폴리오 사이트입니다. 다크모드, 애니메이션 효과, 동적 데이터 처리 등을 포함하고 있습니다.',
             role: '프론트엔드 개발 및 UI/UX 디자인',
             period: '2024.03 - 2024.05'
