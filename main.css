@@ -18,9 +18,16 @@ footer {
   margin-top: auto;
 }
 
-/* 스크롤바 활성화 */
+/* 스크롤 기능은 유지하되 스크롤바만 숨기기 */
 html, body {
   overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* ============================================
