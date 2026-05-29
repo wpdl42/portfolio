@@ -8,17 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailBox = document.getElementById('projectDetail');
     const detailContent = document.getElementById('detailContent');
 
-    // 팀원 상세 데이터
+    // 팀원 상세 데이터 (image 경로를 추가하여 직접 이미지를 넣으실 수 있습니다)
     const membersData = {
-        '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: '팀원_' },
-        '안성원': { github: '#', blog: '#', role: '팀장_' },
-        '장  현': { github: '#', blog: '#', role: '팀원_' },
-        '최윤성': { github: '#', blog: '#', role: '팀원_' },
-        '팀원 D': { github: '#', blog: '#', role: 'System Admin' },
-        '팀원 E': { github: '#', blog: '#', role: 'Automation Engineer' },
-        '팀원 F': { github: '#', blog: '#', role: 'Backend Developer' },
-        '팀원 G': { github: '#', blog: '#', role: 'Database Admin' },
-        '팀원 H': { github: '#', blog: '#', role: 'Full Stack' }
+        '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: '팀원_', image: 'img/장주민.jpg' },
+        '안성원': { github: '#', blog: '#', role: '팀장_', image: '' },
+        '장  현': { github: '#', blog: '#', role: '팀원_', image: '' },
+        '최윤성': { github: '#', blog: '#', role: '팀원_', image: '' },
+        '팀원 A': { github: '#', blog: '#', role: 'UI Designer', image: '' },
+        '팀원 B': { github: '#', blog: '#', role: 'Frontend', image: '' },
+        '팀원 C': { github: '#', blog: '#', role: 'Security Analyst', image: '' },
+        '팀원 D': { github: '#', blog: '#', role: 'System Admin', image: '' },
+        '팀원 E': { github: '#', blog: '#', role: 'Automation Engineer', image: '' },
+        '팀원 F': { github: '#', blog: '#', role: 'Backend Developer', image: '' },
+        '팀원 G': { github: '#', blog: '#', role: 'Database Admin', image: '' },
+        '팀원 H': { github: '#', blog: '#', role: 'Full Stack', image: '' }
     };
 
     // 프로젝트 상세 데이터 (객체 배열)
@@ -230,14 +233,18 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 팀원 카드 생성
         membersList.innerHTML = members.map(name => {
-            const mData = membersData[name] || { github: '#', blog: '#', role: 'Team Member' };
+            const mData = membersData[name] || { github: '#', blog: '#', role: 'Team Member', image: '' };
+            
+            // 이미지가 있으면 이미지를 보여주고, 없으면 이름 첫 글자 아이콘을 보여줌
+            const profileDisplay = mData.image 
+                ? `<img src="${mData.image}" alt="${name}" class="rounded-circle shadow-sm" style="width: 80px; height: 80px; object-fit: cover;">`
+                : `<div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center shadow-sm" style="width: 80px; height: 80px; font-size: 2rem;">${name[0]}</div>`;
+
             return `
                 <div class="col-md-4 col-lg-3 fade-in-up">
                     <div class="card h-100 shadow-sm text-center p-4 hover-card">
                         <div class="mb-3">
-                            <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px; font-size: 2rem;">
-                                ${name[0]}
-                            </div>
+                            ${profileDisplay}
                         </div>
                         <h5 class="fw-bold mb-1">${name}</h5>
                         <p class="text-primary small mb-3">${mData.role}</p>
