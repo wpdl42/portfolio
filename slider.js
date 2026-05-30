@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 팀원 상세 데이터 (image 경로를 추가하여 직접 이미지를 넣으실 수 있습니다)
     const membersData = {
-        '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: '팀원_', image: 'img/장주민.jpg', bio: '기술을 통해 세상을 이롭게 만들고 싶은 열정적인 개발자입니다.' },
-        '안성원': { github: '#', blog: '#', role: '팀장_', image: '', bio: '효율적인 협업과 체계적인 일정 관리를 중시하는 리더입니다.' },
-        '장  현': { github: '#', blog: '#', role: '팀원_', image: '', bio: '사용자 경험을 최우선으로 생각하는 프론트엔드 개발자입니다.' },
-        '최윤성': { github: '#', blog: '#', role: '팀원_', image: '', bio: '견고하고 확장 가능한 시스템을 설계하는 백엔드 개발자입니다.' },
+        '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: 'Frontend', image: 'img/jumin.png', bio: '_팀원_' },
+        '안성원': { github: '#', blog: '#', role: 'Frontend', image: 'img/anseongwon.jpg', bio: '_팀장_' },
+        '장  현': { github: '#', blog: '#', role: 'Frontend', image: 'img/hyun.jpg', bio: '_팀원_' },
+        '최윤성': { github: '#', blog: '#', role: 'Frontend', image: 'img/ys.png', bio: '_팀원_' },
         '팀원 A': { github: '#', blog: '#', role: 'UI Designer', image: '', bio: '심미성과 사용성을 동시에 잡는 디자인을 지향합니다.' },
         '팀원 B': { github: '#', blog: '#', role: 'Frontend', image: '', bio: '최신 웹 기술을 탐구하고 적용하는 것을 즐깁니다.' },
         '팀원 C': { github: '#', blog: '#', role: 'Security Analyst', image: '', bio: '안전한 디지털 세상을 위해 보안 취약점을 분석합니다.' },

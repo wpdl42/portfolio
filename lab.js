@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Security', category: 'backend', level: '40%', color: 'bg-dark' },
         { name: 'Git', category: 'tools', level: '60%', color: 'bg-success' },
         { name: 'n8n', category: 'tools', level: '1%', color: 'bg-danger' },
-        { name: 'Bootstrap', category: 'frontend', level: '55%', color: 'bg-purple' }
+        { name: 'Bootstrap', category: 'frontend', level: '55%', color: 'bg-primary' }
     ];
 
     const skillsContainer = document.getElementById('skillsContainer');
