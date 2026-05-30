@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="col-md-4 border-start">
                         <div id="membersClickArea" class="p-3 rounded hover-effect" style="cursor: pointer; transition: all 0.3s ease;">
-                            <h5 class="fw-bold mb-3">참여 팀원 <small style="font-size: 0.7rem; color: #007bff;">(클릭 시 소개 이동)</small></h5>
+                            <h5 class="fw-bold mb-3">참여 팀원 <small style="font-size: 0.7rem; color: #007bff;">(자세히 보기)</small></h5>
                             <div class="d-flex flex-wrap">
                                 ${data.members.map(m => `<span class="member-badge">${m}</span>`).join('')}
                             </div>
