@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 로컬 스토리지에서 데이터 불러오기 (JSON 파싱)
     let messages = JSON.parse(localStorage.getItem('guestbookMessages')) || [
-        { id: 1, nickname: '관리자', message: 'JS Lab에 오신 것을 환영합니다! 메시지를 남겨보세요.', date: '2026-05-29' }
+        { id: 1, nickname: '방명록', message: '테스트 메세지', date: '2026-05-29' }
     ];
 
     /**
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function renderGuestbook() {
         if (messages.length === 0) {
-            guestbookList.innerHTML = '<p class="text-center text-muted my-5">첫 번째 메시지를 남겨보세요!</p>';
+            guestbookList.innerHTML = '<p class="text-center text-muted my-5"> 방명록이 비어 있습니다.</p>';
             return;
         }
 

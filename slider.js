@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: '중간고사 및 기말고사 평가 프로젝트 입니다. 학기중 학습한 웹 프로그래밍 기술을 활용하여 협업경험을 쌓고, 실제 웹 사이트 제작을 목표로 진행했습니다. 주제는 AI으로 선정되었으며, 아직 팀플 완성 안되서 생략합니다.',
             role: '프론트엔드 개발 및 UI Design',
             period: '2026.04 - 2026.06',
-            link: '#' 
+            link: 'https://neo-core-ai.vercel.app/' 
         },
         '2': {
             title: 'Java 학사관리 시스템',
