@@ -1,7 +1,6 @@
-/**
- * 다크모드 테마 토글 기능
- * 로컬 스토리지에 사용자 선택을 저장하여 페이지 재방문 시 유지
- */
+
+//다크모드 테마 토글 기능
+//로컬 스토리지에 사용자 선택을 저장하여 페이지 재방문 시 유지
 
 document.addEventListener('DOMContentLoaded', function() {
   const themeToggle = document.getElementById('themeToggle');
@@ -23,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem('theme', newTheme);
   });
 
+
+  // 이 주석 처리는 신기하네
   /**
    * 테마 적용 함수
    * @param {string} theme - 'light' 또는 'dark'

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ============================================
     // 1. Dynamic Skills (배열 및 객체 처리)
-    // ============================================
+
     
     // 스킬 데이터 (객체 배열)
     const skillsData = [
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ============================================
     // 2. Guestbook (LocalStorage 및 이벤트 처리)
-    // ============================================
+
 
     const guestbookForm = document.getElementById('guestbookForm');
     const guestbookList = document.getElementById('guestbookList');

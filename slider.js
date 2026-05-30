@@ -1,6 +1,6 @@
-/**
- * 팀 프로젝트 드래그 슬라이더 및 동적 상세 정보 로직
- */
+
+//팀 프로젝트 드래그 슬라이더 및 동적 상세 정보 로직
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const sliderContainer = document.getElementById('sliderContainer');
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailBox = document.getElementById('projectDetail');
     const detailContent = document.getElementById('detailContent');
 
-    // 팀원 상세 데이터 (image 경로를 추가하여 직접 이미지를 넣으실 수 있습니다)
+    // 팀원 상세 데이터 (객체 형태, 필요에 따라 확장 가능)
     const membersData = {
         '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: 'Frontend', image: 'img/jumin.png', bio: '_팀원_' },
         '안성원': { github: 'https://github.com/Anseongwon', blog: 'https://blog.naver.com/asvvstudy', role: 'Frontend', image: 'img/anseongwon.jpg', bio: '_팀장_' },
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '2': {
             title: 'Java 학사관리 시스템',
             members: ['장주민', '팀원 H', '팀원 G'],
-            description: '교내 학사관리 시스템을 보방하여 기획 및 설계한 프로젝트입니다.',
+            description: '교내 학사관리 시스템의 모방 프로젝트입니다.',
             role: '백엔드 개발 및 로직 설계',
             period: '2026.05 - 2026.05',
             link: '#'
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: '설명란',
             role: '내 역할',
             period: '2000.00 - 2000.00',
-            link: '#'// 실제 프로젝트 URL을 여기에 넣으세요
+            link: '#'// 실제 프로젝트 URL을 여기에
         }
     };
 
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const membersSection = document.getElementById('teamMembersSection');
         membersSection.style.display = 'none';
 
-        // 상세 내용 생성
+        // 상세 내용 생성 AI 도와줘
         detailContent.innerHTML = `
             <div class="detail-content-wrapper">
                 <div class="row">

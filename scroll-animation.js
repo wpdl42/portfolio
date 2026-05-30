@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const scrollTopBtn = document.getElementById('scrollTopBtn');
 
   // ============================================
-  // 상단 이동 버튼 기능
-  // ============================================
+
 
   // 스크롤 이벤트 리스너
   window.addEventListener('scroll', function() {
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ============================================
   // 스크롤 애니메이션 (Intersection Observer)
-  // ============================================
+
 
   // Intersection Observer 설정
   const observerOptions = {
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ============================================
   // 부드러운 스크롤 (앵커 링크)
-  // ============================================
+
 
   // 모든 앵커 링크에 부드러운 스크롤 적용
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -80,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ============================================
   // 네비게이션 바 활성 링크 표시
-  // ============================================
+
 
   function updateActiveLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -105,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ============================================
   // 페이드인 애니메이션 초기화
-  // ============================================
+
 
   // 페이지 로드 시 fade-in 클래스 요소들이 보이도록 설정
   const fadeInInstant = document.querySelectorAll('.fade-in');
@@ -115,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ============================================
   // 카드 호버 효과 개선
-  // ============================================
+
 
   const hoverCards = document.querySelectorAll('.hover-card');
   hoverCards.forEach(card => {
@@ -130,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ============================================
   // 페이지 전환 시 스크롤 위치 초기화
-  // ============================================
+
 
   // 페이지 로드 시 스크롤을 맨 위로 이동
   window.addEventListener('pageshow', function() {
@@ -139,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ============================================
   // 모바일 네비게이션 자동 닫기
-  // ============================================
+
 
   const navbarCollapse = document.querySelector('.navbar-collapse');
   const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
@@ -159,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ============================================
 // 페이지 언로드 시 스크롤 위치 저장
-// ============================================
 
 window.addEventListener('beforeunload', function() {
   sessionStorage.setItem('scrollPosition', window.scrollY);
