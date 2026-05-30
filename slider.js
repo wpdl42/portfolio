@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 팀원 상세 데이터 (image 경로를 추가하여 직접 이미지를 넣으실 수 있습니다)
     const membersData = {
         '장주민': { github: 'https://github.com/wpdl42', blog: 'https://it-bookmark.tistory.com/', role: 'Frontend', image: 'img/jumin.png', bio: '_팀원_' },
-        '안성원': { github: '#', blog: '#', role: 'Frontend', image: 'img/anseongwon.jpg', bio: '_팀장_' },
-        '장  현': { github: '#', blog: '#', role: 'Frontend', image: 'img/hyun.jpg', bio: '_팀원_' },
-        '최윤성': { github: '#', blog: '#', role: 'Frontend', image: 'img/ys.png', bio: '_팀원_' },
+        '안성원': { github: 'https://github.com/Anseongwon', blog: 'https://blog.naver.com/asvvstudy', role: 'Frontend', image: 'img/anseongwon.jpg', bio: '_팀장_' },
+        '장  현': { github: 'https://github.com/gamjawang', blog: 'https://blog.naver.com/true_playground', role: 'Frontend', image: 'img/hyun.jpg', bio: '_팀원_' },
+        '최윤성': { github: 'https://github.com/ysysys91', blog: 'https://note05863.tistory.com/', role: 'Frontend', image: 'img/ys.png', bio: '_팀원_' },
         '팀원 A': { github: '#', blog: '#', role: 'UI Designer', image: '', bio: '심미성과 사용성을 동시에 잡는 디자인을 지향합니다.' },
         '팀원 B': { github: '#', blog: '#', role: 'Frontend', image: '', bio: '최신 웹 기술을 탐구하고 적용하는 것을 즐깁니다.' },
         '팀원 C': { github: '#', blog: '#', role: 'Security Analyst', image: '', bio: '안전한 디지털 세상을 위해 보안 취약점을 분석합니다.' },
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '팀원 E': { github: '#', blog: '#', role: 'Automation Engineer', image: '', bio: '반복되는 업무를 효율적으로 자동화하는 전문가입니다.' },
         '팀원 F': { github: '#', blog: '#', role: 'Backend Developer', image: '', bio: '데이터의 흐름을 최적화하고 안정적인 서버를 구축합니다.' },
         '팀원 G': { github: '#', blog: '#', role: 'Database Admin', image: '', bio: '데이터의 무결성과 효율적인 쿼리 성능을 보장합니다.' },
-        '팀원 H': { github: '#', blog: '#', role: 'Full Stack', image: '', bio: '프론트와 백엔드를 아우르는 폭넓은 기술 스택을 보유하고 있습니다.' }
+        '팀원 H': { github: '#', blog: '#', role: 'Full Stack', image: '', bio: '폭넓은 백엔드 기술 스택을 보유하고 있습니다.' }
     };
 
     // 프로젝트 상세 데이터 (객체 배열)
@@ -29,33 +29,33 @@ document.addEventListener('DOMContentLoaded', function() {
         '1': {
             title: 'NeoCore Team Project',
             members: ['안성원', '장주민', '장  현', '최윤성'],
-            description: '중간고사 및 기말고사 평가 프로젝트 입니다. 학기중 학습한 웹 프로그래밍 기술을 활용하여 협업경험을 쌓고, 실제 웹 사이트 제작을 목표로 진행했습니다. 주제는 AI으로 선정되었으며, 아직 팀플 완성 안되서 생략합니다.',
+            description: '중간고사 및 기말고사 평가 프로젝트 입니다. 학기중 학습한 웹 프로그래밍 기술을 활용하여 협업경험을 쌓고, 실제 웹 사이트 제작을 목표로 진행했습니다. 주제는 AI으로 선정되었습니다.',
             role: '프론트엔드 개발 및 UI Design',
             period: '2026.04 - 2026.06',
-            link: 'https://neo-core-ai.vercel.app/' 
+            link:'https://neo-core-ai.vercel.app/' 
         },
         '2': {
             title: 'Java 학사관리 시스템',
-            members: ['장주민', '팀원 C'],
-            description: '교내 네트워크 환경에서의 보안 취약점을 점검하고, 방화벽 설정 및 침입 탐지 시스템(IDS) 구축 시나리오를 설계한 프로젝트입니다.',
-            role: '취약점 스캐닝 및 보고서 작성',
-            period: '2023.09 - 2023.12',
+            members: ['장주민', '팀원 H', '팀원 G'],
+            description: '교내 학사관리 시스템을 보방하여 기획 및 설계한 프로젝트입니다.',
+            role: '백엔드 개발 및 로직 설계',
+            period: '2026.05 - 2026.05',
             link: '#'
         },
         '3': {
-            title: '서버 자동화 구축',
+            title: '미지정',
             members: ['장주민', '팀원 D', '팀원 E'],
-            description: 'n8n 워크플로우 자동화 도구와 리눅스 서버를 연동하여, 매일 특정 시간대에 데이터를 수집하고 텔레그램으로 알림을 보내는 시스템을 구축했습니다.',
-            role: '리눅스 서버 관리 및 n8n 워크플로우 설계',
-            period: '2024.01 - 2024.02',
+            description: '설명란',
+            role: '내 역할',
+            period: '2000.00 - 2000.00',
             link: '#'
         },
         '4': {
-            title: '커뮤니티 플랫폼 개발',
+            title: '미지정',
             members: ['장주민', '팀원 F', '팀원 G', '팀원 H'],
-            description: '정보보호학과 학생들을 위한 지식 공유 커뮤니티 플랫폼입니다. 게시판 기능, 자료실, 실시간 채팅 기능을 포함하고 있습니다.',
-            role: 'DB 스키마 설계 및 백엔드 API 보조',
-            period: '2023.03 - 2023.06',
+            description: '설명란',
+            role: '내 역할',
+            period: '2000.00 - 2000.00',
             link: '#'// 실제 프로젝트 URL을 여기에 넣으세요
         }
     };
@@ -204,7 +204,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                             ${data.link && data.link !== '#' ? `
                                 <a href="${data.link}" target="_blank" class="btn btn-primary btn-sm px-4 py-2 rounded-pill shadow-sm">
-                                    <i class="fas fa-external-link-alt me-2"></i>프로젝트 방문하기
+                                    <i class="fas fa-external-link-alt me-2"></i>
+                                    프로젝트 방문하기   
                                 </a>
                             ` : `
                                 <button class="btn btn-outline-secondary btn-sm px-4 py-2 rounded-pill disabled" style="opacity: 0.6;">
