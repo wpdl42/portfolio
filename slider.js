@@ -31,28 +31,32 @@ document.addEventListener('DOMContentLoaded', function() {
             members: ['안성원', '장주민', '장  현', '최윤성'],
             description: '중간고사 및 기말고사 평가 프로젝트 입니다. 학기중 학습한 웹 프로그래밍 기술을 활용하여 협업경험을 쌓고, 실제 웹 사이트 제작을 목표로 진행했습니다. 주제는 AI으로 선정되었으며, 아직 팀플 완성 안되서 생략합니다.',
             role: '프론트엔드 개발 및 UI Design',
-            period: '2026.04 - 2026.06'
+            period: '2026.04 - 2026.06',
+            link: '#' // 실제 프로젝트 URL을 여기에 넣으세요
         },
         '2': {
             title: 'Java 학사관리 시스템',
             members: ['장주민', '팀원 C'],
             description: '교내 네트워크 환경에서의 보안 취약점을 점검하고, 방화벽 설정 및 침입 탐지 시스템(IDS) 구축 시나리오를 설계한 프로젝트입니다.',
             role: '취약점 스캐닝 및 보고서 작성',
-            period: '2023.09 - 2023.12'
+            period: '2023.09 - 2023.12',
+            link: '#'
         },
         '3': {
             title: '서버 자동화 구축',
             members: ['장주민', '팀원 D', '팀원 E'],
             description: 'n8n 워크플로우 자동화 도구와 리눅스 서버를 연동하여, 매일 특정 시간대에 데이터를 수집하고 텔레그램으로 알림을 보내는 시스템을 구축했습니다.',
             role: '리눅스 서버 관리 및 n8n 워크플로우 설계',
-            period: '2024.01 - 2024.02'
+            period: '2024.01 - 2024.02',
+            link: '#'
         },
         '4': {
             title: '커뮤니티 플랫폼 개발',
             members: ['장주민', '팀원 F', '팀원 G', '팀원 H'],
             description: '정보보호학과 학생들을 위한 지식 공유 커뮤니티 플랫폼입니다. 게시판 기능, 자료실, 실시간 채팅 기능을 포함하고 있습니다.',
             role: 'DB 스키마 설계 및 백엔드 API 보조',
-            period: '2023.03 - 2023.06'
+            period: '2023.03 - 2023.06',
+            link: '#'
         }
     };
 
@@ -193,8 +197,22 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="detail-content-wrapper">
                 <div class="row">
                     <div class="col-md-8">
-                        <h2 class="fw-bold mb-3">${data.title}</h2>
-                        <p class="text-muted mb-4">${data.period}</p>
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h2 class="fw-bold mb-1">${data.title}</h2>
+                                <p class="text-muted mb-0">${data.period}</p>
+                            </div>
+                            ${data.link && data.link !== '#' ? `
+                                <a href="${data.link}" target="_blank" class="btn btn-primary btn-sm px-4 py-2 rounded-pill shadow-sm">
+                                    <i class="fas fa-external-link-alt me-2"></i>프로젝트 방문하기
+                                </a>
+                            ` : `
+                                <button class="btn btn-outline-secondary btn-sm px-4 py-2 rounded-pill disabled" style="opacity: 0.6;">
+                                    준비 중인 프로젝트
+                                </button>
+                            `}
+                        </div>
+                        <hr class="my-4 opacity-10">
                         <h5 class="fw-bold mb-2">프로젝트 소개</h5>
                         <p class="lead mb-4" style="font-size: 1.1rem;">${data.description}</p>
                         <h5 class="fw-bold mb-2">주요 역할</h5>
