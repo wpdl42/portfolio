@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: '중간고사 및 기말고사 평가 프로젝트 입니다. 학기중 학습한 웹 프로그래밍 기술을 활용하여 협업경험을 쌓고, 실제 웹 사이트 제작을 목표로 진행했습니다. 주제는 AI으로 선정되었으며, 아직 팀플 완성 안되서 생략합니다.',
             role: '프론트엔드 개발 및 UI Design',
             period: '2026.04 - 2026.06',
-            link: '#' // 실제 프로젝트 URL을 여기에 넣으세요
+            link: '#' 
         },
         '2': {
             title: 'Java 학사관리 시스템',
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             description: '정보보호학과 학생들을 위한 지식 공유 커뮤니티 플랫폼입니다. 게시판 기능, 자료실, 실시간 채팅 기능을 포함하고 있습니다.',
             role: 'DB 스키마 설계 및 백엔드 API 보조',
             period: '2023.03 - 2023.06',
-            link: '#'
+            link: '#'// 실제 프로젝트 URL을 여기에 넣으세요
         }
     };
 
