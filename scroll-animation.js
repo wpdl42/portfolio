@@ -12,20 +12,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 스크롤 이벤트 리스너
   window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-      scrollTopBtn.classList.add('show');
-    } else {
-      scrollTopBtn.classList.remove('show');
+    if (scrollTopBtn) {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
     }
   });
 
   // 상단 이동 버튼 클릭 이벤트
-  scrollTopBtn.addEventListener('click', function() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 
   // ============================================
   // 스크롤 애니메이션 (Intersection Observer)
